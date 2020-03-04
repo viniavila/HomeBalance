@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HBUserInterface</class>
+ <widget class="QMainWindow" name="HBUserInterface">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HBUserInterface</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="tabPosition">
+    <enum>QTabWidget::South</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QTableView" name="tblExpenses">
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="tabKeyNavigation">
+     <bool>false</bool>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="title">
+     <string>Expenses</string>
+    </attribute>
+   </widget>
+   <widget class="QTableView" name="tblIncomes">
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="tabKeyNavigation">
+     <bool>false</bool>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="title">
+     <string>Incomes</string>
+    </attribute>
+   </widget>
+   <widget class="QTableView" name="tblTransfers">
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="tabKeyNavigation">
+     <bool>false</bool>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="title">
+     <string>Transfers</string>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actNewDatabase"/>
+    <addaction name="actOpenDatabase"/>
+    <addaction name="separator"/>
+    <addaction name="actExport"/>
+    <addaction name="separator"/>
+    <addaction name="actSettings"/>
+    <addaction name="separator"/>
+    <addaction name="actQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuDatabase">
+    <property name="title">
+     <string>Database</string>
+    </property>
+    <addaction name="actManageAccounts"/>
+    <addaction name="actManageIncomeCategories"/>
+    <addaction name="actManageExpenseCategories"/>
+    <addaction name="separator"/>
+    <addaction name="actNewTransaction"/>
+    <addaction name="actEditSelectedTransaction"/>
+    <addaction name="actRemoveSelectedTransaction"/>
+    <addaction name="separator"/>
+    <addaction name="actFindTransaction"/>
+    <addaction name="actFilterTransactions"/>
+   </widget>
+   <widget class="QMenu" name="menuAnalysis">
+    <property name="title">
+     <string>Analysis</string>
+    </property>
+    <addaction name="actExpensesPlanner"/>
+    <addaction name="actExpenseAnalysis"/>
+    <addaction name="actAccountsBalance"/>
+    <addaction name="actFinancialPerformance"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actHelpTopics"/>
+    <addaction name="separator"/>
+    <addaction name="actAboutQt"/>
+    <addaction name="actAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuDatabase"/>
+   <addaction name="menuAnalysis"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actNewDatabase">
+   <property name="text">
+    <string>New Database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+N</string>
+   </property>
+  </action>
+  <action name="actOpenDatabase">
+   <property name="text">
+    <string>Open Database</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actExport">
+   <property name="text">
+    <string>Export Data</string>
+   </property>
+  </action>
+  <action name="actSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actFindTransaction">
+   <property name="text">
+    <string>Find Transaction</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actFilterTransactions">
+   <property name="text">
+    <string>Filter Transactions</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="actManageAccounts">
+   <property name="text">
+    <string>Manage Accounts</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actManageIncomeCategories">
+   <property name="text">
+    <string>Manage Income Categories</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actManageExpenseCategories">
+   <property name="text">
+    <string>Manage Expense Categories</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M, Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actNewTransaction">
+   <property name="text">
+    <string>New Transaction</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actEditSelectedTransaction">
+   <property name="text">
+    <string>Edit Selected Transaction</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actRemoveSelectedTransaction">
+   <property name="text">
+    <string>Remove Selected Transaction</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actExpensesPlanner">
+   <property name="text">
+    <string>Expenses Planner</string>
+   </property>
+  </action>
+  <action name="actExpenseAnalysis">
+   <property name="text">
+    <string>Expense Analysis</string>
+   </property>
+  </action>
+  <action name="actAccountsBalance">
+   <property name="text">
+    <string>Accounts Balance</string>
+   </property>
+  </action>
+  <action name="actFinancialPerformance">
+   <property name="text">
+    <string>Financial Performance</string>
+   </property>
+  </action>
+  <action name="actHelpTopics">
+   <property name="text">
+    <string>Help Topics</string>
+   </property>
+  </action>
+  <action name="actAboutQt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actAbout">
+   <property name="text">
+    <string>About HomeBalance</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
