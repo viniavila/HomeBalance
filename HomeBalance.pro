@@ -26,6 +26,15 @@ include($$PWD/Core/Core.pri)
 include($$PWD/UI/UI.pri)
 
 SOURCES += main.cpp
+TRANSLATIONS += \
+    pt_BR.ts
+
 QMAKE_CC = clang++
 QMAKE_CXX = clang++
 QMAKE_LINK = clang++
+
+unix:!macos {
+    target.path += /usr/local/bin
+    INSTALLS += target
+}
+
