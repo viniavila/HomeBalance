@@ -26,3 +26,5 @@ include($$PWD/Core/Core.pri)
 include($$PWD/UI/UI.pri)
 
 SOURCES += main.cpp
+QMAKE_CC = clang++
+QMAKE_CXX = clang++
