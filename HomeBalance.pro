@@ -26,6 +26,7 @@ include($$PWD/Core/Core.pri)
 include($$PWD/UI/UI.pri)
 
 SOURCES += main.cpp
+RESOURCES += HBResources.qrc
 TRANSLATIONS += \
     $$PWD/Translations/pt_BR.ts
 
