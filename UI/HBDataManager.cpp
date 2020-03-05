@@ -3,8 +3,7 @@
 #include <QLocale>
 #include <QTableView>
 #include <QHeaderView>
-
-#define DATE_FORMAT "dd/MM/yyyy"
+#include <HBGlobalFunctions.h>
 
 class HBDataManagerPrivate {
 public:
@@ -99,7 +98,11 @@ QStringList HBDataManager::accountTypes() const {
     return list;
 }
 
-HBFileInterface * HBDataManager::fileInterface() const {
+HBFileInterface const * HBDataManager::fileInterface() const {
+    return d->file_interface;
+}
+
+HBFileInterface * HBDataManager::fileInterface() {
     return d->file_interface;
 }
 
@@ -169,7 +172,7 @@ void HBDataManager::insertRow(const ExpenseTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(account.name, data.account_id, account.name)
         << HBDataModelItem(category.group, data.category_id, category.group)
         << HBDataModelItem(category.name, data.category_id, category.name)
@@ -185,7 +188,7 @@ void HBDataManager::insertRow(const IncomeTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(account.name, data.account_id, account.name)
         << HBDataModelItem(category.name, data.category_id, category.name)
         << HBDataModelItem(data.description)
@@ -200,7 +203,7 @@ void HBDataManager::insertRow(const TransferTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(o_account.name, data.origin_account_id, o_account.name)
         << HBDataModelItem(d_account.name, data.destination_account_id, d_account.name)
         << HBDataModelItem(QLocale().toString(data.value, 'f', 2), data.value, data.value);
@@ -252,7 +255,7 @@ void HBDataManager::updateRow(int r, const ExpenseTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(account.name, data.account_id, account.name)
         << HBDataModelItem(category.group, data.category_id, category.group)
         << HBDataModelItem(category.name, data.category_id, category.name)
@@ -268,7 +271,7 @@ void HBDataManager::updateRow(int r, const IncomeTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(account.name, data.account_id, account.name)
         << HBDataModelItem(category.name, data.category_id, category.name)
         << HBDataModelItem(data.description)
@@ -283,7 +286,7 @@ void HBDataManager::updateRow(int r, const TransferTransaction& data) {
     row << HBDataModelItem(data.id)
         << HBDataModelItem(data.timestamp.toString(Qt::ISODate), data.timestamp, data.timestamp)
         << HBDataModelItem(data.checksum)
-        << HBDataModelItem(data.transaction_date.toString(DATE_FORMAT), data.transaction_date, data.transaction_date)
+        << HBDataModelItem(data.transaction_date.toString(HBGlobalFunctions::date_format()), data.transaction_date, data.transaction_date)
         << HBDataModelItem(o_account.name, data.origin_account_id, o_account.name)
         << HBDataModelItem(d_account.name, data.destination_account_id, d_account.name)
         << HBDataModelItem(QLocale().toString(data.value, 'f', 2), data.value, data.value);
@@ -318,7 +321,7 @@ void HBDataManager::deleteObject(HBCollection collection, int row) {
     }
 }
 
-QString HBDataManager::objectId(HBCollection collection, int row) {
+QString HBDataManager::objectId(HBCollection collection, int row) const {
     QModelIndex index = d->data_models[collection]->index(row, 0);
     if (index.isValid())
         return index.data().toString();
