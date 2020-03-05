@@ -19,7 +19,7 @@ public:
 
     void load_accounts() {
         ui->cboAccount->clear();
-        AccountList account_list = m_data->fileInterface()->getObjectList<Account>();
+        AccountList account_list = m_data->getObjectList<Account>();
         QHash<QString, QString> acc_names;
         for (const Account& c : account_list)
             acc_names[c.name] = c.id;
@@ -33,14 +33,14 @@ public:
     void load_groups() {
         ui->cboGroup->clear();
         ui->cboCategory->clear();
-        QStringList group_list = m_data->fileInterface()->getValueList(HBCOLLECTION_EXPENSE_CATEGORIES, "group", true);
+        QStringList group_list = m_data->getValueList<ExpenseCategory>("group", true);
         ui->cboGroup->addItems(group_list);
         ui->cboGroup->setCurrentIndex(-1);
     }
 
     void cboGroup_onCurrentIndexChanged(const QString& text) {
         ui->cboCategory->clear();
-        ExpenseCategoryList category_list = m_data->fileInterface()->getObjectList<ExpenseCategory>("group", text);
+        ExpenseCategoryList category_list = m_data->getObjectList<ExpenseCategory>("group", text);
         QHash<QString, QString> cat_names;
         for (const ExpenseCategory& c : category_list)
             cat_names[c.name] = c.id;
@@ -52,13 +52,13 @@ public:
     }
 
     void completer_onHighlighted(const QString& text) {
-        ExpenseTransaction first = m_data->fileInterface()->getObject<ExpenseTransaction>("description", text);
+        ExpenseTransaction first = m_data->getObject<ExpenseTransaction>("description", text);
         if (!first.account_id.isEmpty()) {
-            Account acc = m_data->fileInterface()->getObject<Account>(first.account_id);
+            Account acc = m_data->getObject<Account>(first.account_id);
             ui->cboAccount->setCurrentText(acc.name);
         }
         if (!first.category_id.isEmpty()) {
-            ExpenseCategory cat = m_data->fileInterface()->getObject<ExpenseCategory>(first.category_id);
+            ExpenseCategory cat = m_data->getObject<ExpenseCategory>(first.category_id);
             ui->cboGroup->setCurrentText(cat.group);
             ui->cboCategory->setCurrentText(cat.name);
         }
@@ -89,7 +89,7 @@ InputExpenseTransaction::InputExpenseTransaction(HBDataManager * m, QWidget *par
     d->load_accounts();
     d->load_groups();
 
-    QCompleter * completer = new QCompleter(m->fileInterface()->getValueList(HBCOLLECTION_EXPENSE_TRANSACTIONS, "description", true), this);
+    QCompleter * completer = new QCompleter(m->getValueList<ExpenseTransaction>("description", true), this);
     completer->setCompletionMode(QCompleter::InlineCompletion);
     ui->txtDescription->setCompleter(completer);
 
@@ -105,8 +105,8 @@ InputExpenseTransaction::~InputExpenseTransaction() {
 }
 
 void InputExpenseTransaction::setData(const ExpenseTransaction& data) {
-    Account acc = d->m_data->fileInterface()->getObject<Account>(data.account_id);
-    ExpenseCategory cat = d->m_data->fileInterface()->getObject<ExpenseCategory>(data.category_id);
+    Account acc = d->m_data->getObject<Account>(data.account_id);
+    ExpenseCategory cat = d->m_data->getObject<ExpenseCategory>(data.category_id);
     ui->txtDescription->setText(data.description);
     ui->cboAccount->setCurrentText(acc.name);
     ui->cboGroup->setCurrentText(cat.group);

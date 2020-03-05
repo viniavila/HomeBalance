@@ -18,7 +18,7 @@ public:
     void load_accounts() {
         ui->cboOrigin->clear();
         ui->cboDestination->clear();
-        AccountList account_list = m_data->fileInterface()->getObjectList<Account>();
+        AccountList account_list = m_data->getObjectList<Account>();
         QHash<QString, QString> acc_names;
         for (const Account& c : account_list)
             acc_names[c.name] = c.id;
@@ -60,8 +60,8 @@ InputTransferTransaction::~InputTransferTransaction() {
 }
 
 void InputTransferTransaction::setData(const TransferTransaction& data) {
-    Account origin_acc = d->m_data->fileInterface()->getObject<Account>(data.origin_account_id);
-    Account dest_acc = d->m_data->fileInterface()->getObject<Account>(data.destination_account_id);
+    Account origin_acc = d->m_data->getObject<Account>(data.origin_account_id);
+    Account dest_acc = d->m_data->getObject<Account>(data.destination_account_id);
     ui->cboOrigin->setCurrentText(origin_acc.name);
     ui->cboDestination->setCurrentText(dest_acc.name);
     ui->txtDate->setDate(data.transaction_date);

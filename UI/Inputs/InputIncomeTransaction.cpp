@@ -19,7 +19,7 @@ public:
 
     void load_accounts() {
             ui->cboAccount->clear();
-            AccountList account_list = m_data->fileInterface()->getObjectList<Account>();
+            AccountList account_list = m_data->getObjectList<Account>();
             QHash<QString, QString> acc_names;
             for (const Account& c : account_list)
                 acc_names[c.name] = c.id;
@@ -32,7 +32,7 @@ public:
 
     void load_categories() {
         ui->cboCategory->clear();
-        IncomeCategoryList category_list = m_data->fileInterface()->getObjectList<IncomeCategory>();
+        IncomeCategoryList category_list = m_data->getObjectList<IncomeCategory>();
         QHash<QString, QString> cat_names;
         for (const IncomeCategory& c : category_list)
             cat_names[c.name] = c.id;
@@ -44,13 +44,13 @@ public:
     }
 
     void completer_onHighlighted(const QString& text) {
-        IncomeTransaction first = m_data->fileInterface()->getObject<IncomeTransaction>("description", text);
+        IncomeTransaction first = m_data->getObject<IncomeTransaction>("description", text);
         if (!first.account_id.isEmpty()) {
-            Account acc = m_data->fileInterface()->getObject<Account>(first.account_id);
+            Account acc = m_data->getObject<Account>(first.account_id);
             ui->cboAccount->setCurrentText(acc.name);
         }
         if (!first.category_id.isEmpty()) {
-            IncomeCategory cat = m_data->fileInterface()->getObject<IncomeCategory>(first.category_id);
+            IncomeCategory cat = m_data->getObject<IncomeCategory>(first.category_id);
             ui->cboCategory->setCurrentText(cat.name);
         }
     }
@@ -81,7 +81,7 @@ InputIncomeTransaction::InputIncomeTransaction(HBDataManager * m, QWidget *paren
     d->load_accounts();
     d->load_categories();
 
-    QCompleter * completer = new QCompleter(m->fileInterface()->getValueList(HBCOLLECTION_INCOME_TRANSACTIONS, "description", true), this);
+    QCompleter * completer = new QCompleter(m->getValueList<IncomeTransaction>("description", true), this);
     completer->setCompletionMode(QCompleter::InlineCompletion);
     ui->txtDescription->setCompleter(completer);
 
@@ -96,8 +96,8 @@ InputIncomeTransaction::~InputIncomeTransaction() {
 }
 
 void InputIncomeTransaction::setData(const IncomeTransaction& data) {
-    Account acc = d->m_data->fileInterface()->getObject<Account>(data.account_id);
-    IncomeCategory cat = d->m_data->fileInterface()->getObject<IncomeCategory>(data.category_id);
+    Account acc = d->m_data->getObject<Account>(data.account_id);
+    IncomeCategory cat = d->m_data->getObject<IncomeCategory>(data.category_id);
     ui->txtDescription->setText(data.description);
     ui->cboAccount->setCurrentText(acc.name);
     ui->cboCategory->setCurrentText(cat.name);

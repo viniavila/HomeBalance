@@ -7,7 +7,7 @@ InputExpenseCategory::InputExpenseCategory(HBDataManager *m, QWidget *parent) :
     ui(new Ui::InputExpenseCategory)
 {
     ui->setupUi(this);
-    QCompleter *completer = new QCompleter(m->fileInterface()->getValueList(HBCOLLECTION_EXPENSE_CATEGORIES, "group", true), this);
+    QCompleter *completer = new QCompleter(m->getValueList<ExpenseCategory>("group", true), this);
     completer->setCompletionMode(QCompleter::InlineCompletion);
     ui->txtGroup->setCompleter(completer);
 }
