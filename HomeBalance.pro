@@ -27,7 +27,7 @@ include($$PWD/UI/UI.pri)
 
 SOURCES += main.cpp
 TRANSLATIONS += \
-    pt_BR.ts
+    $$PWD/Translations/pt_BR.ts
 
 QMAKE_CC = clang++
 QMAKE_CXX = clang++
