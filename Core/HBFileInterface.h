@@ -85,8 +85,13 @@ public:
         return t_list;
     }
 
+    template<typename T>
+    QStringList getValueList(const QString& key, bool sorted = false) const {
+        HBObject obj = object_cast(T());
+        return getValueList(obj.collection, key, sorted);
+    }
+
     void deleteObject(const QString& id);
-    QStringList getValueList(HBCollection collection, const QString& key, bool sorted = false) const;
 
 protected:
     void run();
@@ -99,6 +104,7 @@ private:
     HBObject getObject(HBCollection collection, const QString& key, const QString& value) const;
     HBObjectList getObjectList(HBCollection collection) const;
     HBObjectList getObjectList(HBCollection collection, const QString& key, const QString& value) const;
+    QStringList getValueList(HBCollection collection, const QString& key, bool sorted = false) const;
 };
 
 #endif // HBFILEINTERFACE_H
