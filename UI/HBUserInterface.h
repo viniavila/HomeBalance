@@ -14,6 +14,9 @@ public:
     explicit HBUserInterface(QWidget *parent = 0);
     ~HBUserInterface();
 
+protected:
+    void closeEvent(QCloseEvent *);
+
 private:
     Ui::HBUserInterface * const ui;
     HBUserInterfacePrivate * const d;

@@ -13,6 +13,7 @@
 #include <InputIncomeTransaction.h>
 #include <InputExpenseTransaction.h>
 #include <InputTransferTransaction.h>
+#include <DialogAccountsBalance.h>
 
 class HBUserInterfacePrivate {
 public:
@@ -56,7 +57,7 @@ public:
     }
 
     void actAccountsBalance_onTriggered() {
-        HBGlobalFunctions::message_not_implemented(parent);
+        DialogAccountsBalance(m_data, parent).exec();
     }
 
     void actEditSelectedTransaction_onTriggered() {
@@ -279,6 +280,9 @@ HBUserInterface::HBUserInterface(QWidget *parent) :
     ui->tblIncomes->verticalHeader()->setDefaultSectionSize(fontMetrics().height()*1.5);
     ui->tblTransfers->verticalHeader()->setDefaultSectionSize(fontMetrics().height()*1.5);
 
+    QSettings st;
+    restoreGeometry(st.value("WindowGeometry/HBUserInterface").toByteArray());
+
     connect(ui->actAbout, &QAction::triggered, this, std::bind(&HBUserInterfacePrivate::actAbout_onTriggered, d));
     connect(ui->actAboutQt, &QAction::triggered, qApp, &QApplication::aboutQt);
     connect(ui->actAccountsBalance, &QAction::triggered, this, std::bind(&HBUserInterfacePrivate::actAccountsBalance_onTriggered, d));
@@ -309,3 +313,8 @@ HBUserInterface::~HBUserInterface() {
     delete ui;
 }
 
+void HBUserInterface::closeEvent(QCloseEvent *ev) {
+    QSettings st;
+    st.setValue("WindowGeometry/HBUserInterface", saveGeometry());
+    QMainWindow::closeEvent(ev);
+}
