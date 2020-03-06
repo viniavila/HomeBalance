@@ -1,5 +1,6 @@
 #include "HBUserInterface.h"
 #include "ui_HBUserInterface.h"
+#include "HBDataModel.h"
 #include "HBDataManager.h"
 #include "HBGlobalFunctions.h"
 #include <QSettings>
@@ -14,6 +15,9 @@
 #include <InputExpenseTransaction.h>
 #include <InputTransferTransaction.h>
 #include <DialogAccountsBalance.h>
+#include <FilterExpenseTransactions.h>
+#include <FilterIncomeTransactions.h>
+#include <FilterTransferTransactions.h>
 
 class HBUserInterfacePrivate {
 public:
@@ -89,7 +93,28 @@ public:
     }
 
     void actFilterTransactions_onTriggered() {
-        HBGlobalFunctions::message_not_implemented(parent);
+        AbstractFilterDialog * dialog;
+        HBDataModel * model;
+        switch (ui->tabWidget->currentIndex()) {
+        case TABVIEW_EXPENSES:
+            dialog = new FilterExpenseTransactions(parent);
+            model = qobject_cast<HBDataModel*>(ui->tblExpenses->model());
+            break;
+
+        case TABVIEW_INCOMES:
+            dialog = new FilterIncomeTransactions(parent);
+            model = qobject_cast<HBDataModel*>(ui->tblIncomes->model());
+            break;
+
+        case TABVIEW_TRANSFERS:
+            dialog = new FilterTransferTransactions(parent);
+            model = qobject_cast<HBDataModel*>(ui->tblTransfers->model());
+            break;
+        }
+        dialog->setFilterList(model->filters());
+        if (dialog->exec())
+            model->setFilters(dialog->filterList());
+        delete dialog;
     }
 
     void actFinancialPerformance_onTriggered() {

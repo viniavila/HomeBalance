@@ -221,6 +221,198 @@
     </message>
 </context>
 <context>
+    <name>FilterExpenseTransactions</name>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="20"/>
+        <source>Filter Expense Transactions</source>
+        <translation>Filtrar Despesas</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="135"/>
+        <source>Begin Date</source>
+        <translation>Data Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="142"/>
+        <source>End Date</source>
+        <translation>Data Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="149"/>
+        <source>Account</source>
+        <translation>Conta</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="156"/>
+        <source>Group Name</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="163"/>
+        <source>Category Name</source>
+        <translation>Categoria</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="170"/>
+        <source>Description</source>
+        <translation>Descrição</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="177"/>
+        <source>Begin Value</source>
+        <translation>Valor Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="184"/>
+        <source>End Value</source>
+        <translation>Valor Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="194"/>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="207"/>
+        <source>dd/MM/yyyy</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="286"/>
+        <source>&amp;Reset</source>
+        <translation>&amp;Restaurar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="306"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterExpenseTransactions.ui" line="317"/>
+        <source>&amp;Apply</source>
+        <translation>&amp;Aplicar</translation>
+    </message>
+</context>
+<context>
+    <name>FilterIncomeTransactions</name>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="20"/>
+        <source>Filter Income Transactions</source>
+        <translation>Filtrar Receitas</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="135"/>
+        <source>Begin Date</source>
+        <translation>Data Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="145"/>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="165"/>
+        <source>dd/MM/yyyy</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="155"/>
+        <source>End Date</source>
+        <translation>Data Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="175"/>
+        <source>Account</source>
+        <translation>Conta</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="189"/>
+        <source>Category Name</source>
+        <translation>Categoria</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="203"/>
+        <source>Description</source>
+        <translation>Descrição</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="217"/>
+        <source>Begin Value</source>
+        <translation>Valor Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="231"/>
+        <source>End Value</source>
+        <translation>Valor Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="272"/>
+        <source>&amp;Reset</source>
+        <translation>&amp;Restaurar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="292"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterIncomeTransactions.ui" line="303"/>
+        <source>&amp;Apply</source>
+        <translation>&amp;Aplicar</translation>
+    </message>
+</context>
+<context>
+    <name>FilterTransferTransactions</name>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="20"/>
+        <source>Filter Transfer Transactions</source>
+        <translation>Filtrar Transferências</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="135"/>
+        <source>Begin Date</source>
+        <translation>Data Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="145"/>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="165"/>
+        <source>dd/MM/yyyy</source>
+        <translation>dd/MM/yyyy</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="155"/>
+        <source>End Date</source>
+        <translation>Data Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="175"/>
+        <source>Origin Account</source>
+        <translation>Conta de Origem</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="189"/>
+        <source>Destination Account</source>
+        <translation>Conta de Destino</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="203"/>
+        <source>Begin Value</source>
+        <translation>Valor Inicial</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="217"/>
+        <source>End Value</source>
+        <translation>Valor Final</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="258"/>
+        <source>&amp;Reset</source>
+        <translation>&amp;Restaurar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="278"/>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../UI/Filter/FilterTransferTransactions.ui" line="289"/>
+        <source>&amp;Apply</source>
+        <translation>&amp;Aplicar</translation>
+    </message>
+</context>
+<context>
     <name>HBDataManager</name>
     <message>
         <location filename="../UI/HBDataManager.cpp" line="97"/>
@@ -566,33 +758,33 @@
 <context>
     <name>HBUserInterfacePrivate</name>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="121"/>
-        <location filename="../UI/HBUserInterface.cpp" line="182"/>
+        <location filename="../UI/HBUserInterface.cpp" line="146"/>
+        <location filename="../UI/HBUserInterface.cpp" line="207"/>
         <source>Home Balance Database Files</source>
         <translation>Arquivos de Banco de Dados do HomeBalance</translation>
     </message>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="126"/>
+        <location filename="../UI/HBUserInterface.cpp" line="151"/>
         <source>Create a New Database File</source>
         <translation>Criar um novo arquivo de banco de dados</translation>
     </message>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="184"/>
+        <location filename="../UI/HBUserInterface.cpp" line="209"/>
         <source>Select an Existing Database File</source>
         <translation>Selecionar um arquivo de banco de dados existente</translation>
     </message>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="234"/>
+        <location filename="../UI/HBUserInterface.cpp" line="259"/>
         <source>Edit Expense Transaction</source>
         <translation>Editar Despesa</translation>
     </message>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="247"/>
+        <location filename="../UI/HBUserInterface.cpp" line="272"/>
         <source>Edit Income Transaction</source>
         <translation>Editar Receita</translation>
     </message>
     <message>
-        <location filename="../UI/HBUserInterface.cpp" line="260"/>
+        <location filename="../UI/HBUserInterface.cpp" line="285"/>
         <source>Edit Transfer Transaction</source>
         <translation>Editar Transferência</translation>
     </message>
