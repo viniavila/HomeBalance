@@ -111,6 +111,10 @@ void HBDataModel::clearFilters() {
     invalidateFilter();
 }
 
+HBDataModelFilterList HBDataModel::filters() const {
+    return d->filters;
+}
+
 void HBDataModel::setHeaderLabels(const QStringList& labels) {
     d->model->setHorizontalHeaderLabels(labels);
 }

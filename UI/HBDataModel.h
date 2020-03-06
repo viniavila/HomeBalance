@@ -50,6 +50,7 @@ public:
     void addFilter(const HBDataModelFilter& filter);
     void setFilters(const HBDataModelFilterList& filters);
     void clearFilters();
+    HBDataModelFilterList filters() const;
 
     void setHeaderLabels(const QStringList& labels);
 
@@ -68,6 +69,10 @@ private:
     void setFilterRegExp(const QRegExp&) = delete;
     void setFilterRole(int) = delete;
     void setFilterWildcard(const QString&) = delete;
+    Qt::CaseSensitivity filterCaseSensitivity() const = delete;
+    int filterKeyColumn() const = delete;
+    QRegExp filterRegExp() const = delete;
+    int filterRole() const = delete;
 };
 
 #endif // HBDATAMODEL_H
